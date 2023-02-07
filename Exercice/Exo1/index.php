@@ -10,3 +10,19 @@ $majeur->afficher();
 $majeur->setPrenom("Pierre");
 
 $majeur->afficher();
+
+$ado = new Ado("Carbini", "Lorenzo", 17,"terminal", false);
+
+$ado->afficher();
+
+$ado->setClasse("seconde");
+
+$ado->afficher();
+
+$enfant = new Enfant("Tillier", "Edouard", 10,"CM2", true);
+
+$enfant->afficher();
+
+$enfant->setJoue(false);
+
+$enfant->afficher();
