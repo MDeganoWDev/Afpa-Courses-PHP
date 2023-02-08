@@ -1,5 +1,5 @@
 <?php
-class Vue{
+class VueForm{
     public function __construct()
     {
         
