@@ -6,7 +6,6 @@ class VueMeteo{
     }
 
     public function afficherMeteo(){
-        $head ="meteoHead.html";
         $partial = "meteo.html";
         include "templates/template.html";
     }

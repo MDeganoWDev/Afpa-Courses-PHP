@@ -1,13 +1,175 @@
-<select id="ville">
-    <option value="toulouse">Toulouse</option>
-    <option value="bordeaux">Bordeaux</option>
-    <option value="paris">Paris</option>
-    <option value="marseille">Marseille</option>
-</select>
-<button id="meteo">click</button>
-<br />
-<input id="ville2" value="" /><button id="meteo2">chercher</button>
-<button id="graph">graphique</button>
-<hr />
-<div id="madiv"></div>
-<div id="container"></div>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/x-icon" href="./meteoFile/favicon.ico">
+	<link rel="stylesheet" href="./meteoFile/meteo.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="http://code.highcharts.com/modules/exporting.js"></script>
+	<script src="./meteoFile/meteo.js"></script>
+	<script>
+		$(document).ready(function () {
+			var ville = "";
+
+			$("button#meteo").click(function () {
+				ville = $("select#ville option:selected").val();
+				console.log('[' + ville + ']');
+				myAjax({ "ville": ville }, function (data) {
+					console.log(data);
+					console.log(data.errors);
+					if (data.errors == undefined) {
+						var composant = "";
+						composant += "<h1>" + data.city_info.name + "</h1>";
+						composant += "<h2>" + data.current_condition.date + "</h2>";
+						composant += "<table id='prev_jours'>";
+						composant += "<thead>";
+						composant += "<tr><th>Jour</th><th>Icône</th><th>Cond.</th><th>Tmin</th><th>Tmax</th></tr>";
+						composant += "</thead>";
+						composant += "<tbody>";
+						for (var i = 0; i < 5; i++) {
+							composant += "<tr>";
+							composant += "<td>" + data['fcst_day_' + i].day_long + "</td>";
+							composant += "<td><img src='" + data['fcst_day_' + i].icon + "'/></td>";
+							composant += "<td>" + data['fcst_day_' + i].condition + "</td>";
+							composant += "<td>" + data['fcst_day_' + i].tmin + "°C</td>";
+							composant += "<td>" + data['fcst_day_' + i].tmax + "°C</td>";
+							composant += "</tr>";
+						}
+						composant += "</tbody>";
+
+						composant += "</table>";
+
+
+
+						$("div#madiv").html(composant);
+					}
+					else {
+						var composant = "";
+						composant += "<h1>" + data.errors[0].text + "</h1>"; //securité pour controler l'erreur dans le json
+
+						$("div#madiv").html(composant);
+					};
+
+
+
+				}
+				);
+			});
+			
+			
+			$("button#meteo2").click(function () {
+				ville = $("#ville2").val();
+				console.log('[' + ville + ']');
+				myAjax({ "ville": ville }, function (data) {
+					console.log(data);
+					console.log(data.errors);
+				if (data.errors == undefined) {
+					var composant = "";
+					composant += "<h1>" + data.city_info.name + "</h1>";
+					composant += "<h2>" + data.current_condition.date + "</h2>";
+					composant += "<table id='prev_jours'>";
+						composant += "<thead>";
+							composant += "<tr><th>Jour</th><th>Icône</th><th>Cond.</th><th>Tmin</th><th>Tmax</th></tr>";
+							composant += "</thead>";
+							composant += "<tbody>";
+								for (var i = 0; i < 5; i++) {
+									composant += "<tr>";
+										composant += "<td>" + data['fcst_day_' + i].day_long + "</td>";
+										composant += "<td><img src='" + data['fcst_day_' + i].icon + "'/></td>";
+										composant += "<td>" + data['fcst_day_' + i].condition + "</td>";
+										composant += "<td>" + data['fcst_day_' + i].tmin + "°C</td>";
+										composant += "<td>" + data['fcst_day_' + i].tmax + "°C</td>";
+										composant += "</tr>";
+									}
+									composant += "</tbody>";
+
+					composant += "</table>";
+
+					
+
+					$("div#madiv").html(composant);
+				}
+				else {
+					var composant = "";
+					composant += "<h1>" + data.errors[0].text + "</h1>"; //securité pour controler l'erreur dans le json
+
+					$("div#madiv").html(composant);
+				};
+
+				
+				
+			}
+			);
+		});
+		
+		$("button#graph").click(function () {
+			// ville = $("#ville2").val();
+			// console.log('[' + ville + ']');
+			myAjax({ "ville": ville }, function (data) {
+				var jours = [];
+				var Tmin = [];
+				var Tmax = [];
+				for (var i = 0; i < 5; i++) {
+					// composant += "<td>"+data['fcst_day_'+i].day_long+"</td>";
+					jours[i] = data['fcst_day_' + i].day_long;
+					Tmin.push(data['fcst_day_' + i].tmin);
+					Tmax.push(data['fcst_day_' + i].tmax);
+				}
+
+				Highcharts.chart('container', {
+					chart: {
+						type: 'column'
+					},
+					title: {
+						text: 'Températures'
+					},
+					subtitle: {
+						text: "Source: meteo"
+					},
+					xAxis: {
+						categories: jours
+					},
+					yAxis: {
+						
+						title: {
+							text: 'Températures(°C)'
+						}
+					},
+					credits: {
+						enabled: false
+					},
+					series: [{
+						name: data.city_info.name + '(Tmin)',
+						data: Tmin
+					}, {
+						name: data.city_info.name + '(Tmax)',
+						data: Tmax
+					}]
+				});
+			});
+		});
+
+
+	});
+	</script>
+	</head>
+	
+	<body>
+		<select id="ville">
+		<option value="toulouse">Toulouse</option>
+		<option value="bordeaux">Bordeaux</option>
+		<option value="paris">Paris</option>
+		<option value="marseille">Marseille</option>
+	</select>
+	<button id="meteo">click</button>
+	<br />
+	<input id="ville2" value="" /><button id="meteo2">chercher</button>
+	<button id="graph">graphique</button>
+	<hr />
+	<div id="madiv"></div>
+	<div id="container"></div>
+</body>
+
+</html>

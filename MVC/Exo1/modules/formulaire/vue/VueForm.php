@@ -10,7 +10,7 @@ class VueForm{
         include "templates/template.html";
     }
 
-    public function afficherOk($data){
+    public function afficherOk($data){        
         $partial = "ok.html";
         include "templates/template.html";
     }

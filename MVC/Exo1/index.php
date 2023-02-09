@@ -18,8 +18,8 @@ $ctrl = new $c;
 $m = isset($_GET['m']) ? $_GET['m'] : "meteo";
 $ctrl->$m();
 
-// $c= isset($_GET['c']) ? $_GET['c'] : "CtrlForm";
-// $ctrl = new $c;
+$c= isset($_GET['c']) ? $_GET['c'] : "CtrlForm";
+$ctrl = new $c;
 
-// $m = isset($_GET['m']) ? $_GET['m'] : "formulaire";
-// $ctrl->$m();
+$m = isset($_GET['m']) ? $_GET['m'] : "formulaire";
+$ctrl->$m();
