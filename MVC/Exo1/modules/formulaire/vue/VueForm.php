@@ -6,7 +6,6 @@ class VueForm{
     }
 
     public function afficherFormulaire(){
-        //echo "Formulaire";
         $partial = "formulaire.html";
         include "templates/template.html";
     }

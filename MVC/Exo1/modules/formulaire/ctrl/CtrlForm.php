@@ -7,12 +7,11 @@ class CtrlForm{
     {
         $this->vue = new VueForm();
     }
+
     public function formulaire(){
         $this->vue->afficherFormulaire();
     } 
     
-
-
     public function enregistrerFormulaire(){
         
         $this->vue->afficherOk($_POST);
