@@ -19,4 +19,14 @@ class VueForm{
         $partial = "modules/formulaire/templates/errorFormulaire.html";
         include "templates/template.html";
     }
+
+    public function afficherTable($data){
+        $partial = "modules/formulaire/templates/table.html";
+        include "templates/template.html";
+    }
+
+     public function afficherEdit($data){
+        $partial = "modules/formulaire/templates/tableEdit.html";
+        include "templates/template.html";
+    }
 }

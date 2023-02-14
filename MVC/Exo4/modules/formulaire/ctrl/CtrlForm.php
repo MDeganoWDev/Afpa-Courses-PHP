@@ -18,9 +18,29 @@ class CtrlForm
     public function enregistrerFormulaire()
     {
         if ($this->model->insert($_POST)){
-        $this->vue->afficherResultat($_POST);
+            $this->vue->afficherResultat($_POST);
         } else {
             $this->vue->afficherError();
         }
     }
+
+ public function tableContacts()
+ {
+    if ($this->model->select()){
+        $this->vue->afficherTable($this->model->select());
+    } else {
+        $this->vue->afficherError();
+    }
+ }
+ 
+ public function deleteContact($id) {
+    $this->model->delete($id);
+    $this->vue->afficherTable($this->model->select());
+ }
+
+ public function editContact($id) {
+    $this->model->editSelect($id);
+    $this->vue->afficherEdit($this->model->editSelect($id));
+ }
+ 
 }
