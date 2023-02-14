@@ -1,0 +1,8 @@
+nav.navbar div.container-fluid div.navbar-header a.navbar-brand {
+    padding: 0;
+  }
+  
+  nav.navbar div.container-fluid div.navbar-header a.navbar-brand img {
+    width: 80px;
+  }
+  
