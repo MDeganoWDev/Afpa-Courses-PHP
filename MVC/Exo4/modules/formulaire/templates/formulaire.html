@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="./modules/formulaire/css/formulaire.css">
+<script src="modules/formulaire/js/contact.js"></script>
+<script src="modules/formulaire/js/scriptContact.js"></script>
+<div class="container">
+    <h2>Formulaire de Contact</h2>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6 col-lg-offset-1">
+            <form action="?c=CtrlForm&m=enregistrerFormulaire" method="post" id="formulaire">
+                <div class="form-group">
+                    <label class="control-label" for="nom">Nom</label>
+                    <input type="text" class="form-control" placeholder="entrer votre nom" name="nom" id="nom">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="prenom">Prénom</label>
+                    <input type="text" class="form-control" placeholder="entrer votre prénom" name="prenom" id="prenom">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="tel">Tel</label>
+                    <input type="text" class="form-control" placeholder="entrer votre téléphone" name="tel" id="tel">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="email">Email</label>
+                    <input type="text" class="form-control" placeholder="entrer votre email" name="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="message">Messages</label>
+                    <textarea class="form-control" placeholder="entrer votre message" name="message"
+                        id="message"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default" type="reset">Annuler</button>
+                    <button class="btn btn-success" type="submit">Valider</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
