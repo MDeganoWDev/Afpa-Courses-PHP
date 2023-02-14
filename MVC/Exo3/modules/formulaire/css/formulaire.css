@@ -1,0 +1,46 @@
+div.container div.row div form div.form-group {
+  display: flex;
+}
+div.container div.row div form div.form-group label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+}
+div.container div.row div form div.form-group label:after {
+  content: " :";
+  margin-right: 3px;
+  color: rgb(0, 0, 0);
+}
+div.container div.row div form div.form-group input {
+  width: 80%;
+  display: inline;
+}
+div.container div.row div form div.form-group textarea {
+  width: 80%;
+  display: inline;
+}
+div.container div.row div form div:last-of-type {
+  display: block;
+}
+div.container div.row div form div:last-of-type button:nth-of-type(2) {
+  float: right;
+}
+@media screen and (max-width: 767px) {
+  div.container div.row div form div.form-group {
+    display: block;
+  }
+  div.container div.row div form div.form-group label {
+    text-align: left;
+  }
+  div.container div.row div form div.form-group label:after {
+    display: none;
+  }
+  div.container div.row div form div.form-group input {
+    width: 100%;
+    display: inline;
+  }
+  div.container div.row div form div.form-group textarea {
+    width: 100%;
+    display: inline;
+  }
+}
