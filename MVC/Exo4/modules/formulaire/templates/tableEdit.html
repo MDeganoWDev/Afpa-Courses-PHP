@@ -1,26 +1,32 @@
-<link rel="stylesheet" href="./modules/formulaire/css/formulaire.css">
-<script src="modules/formulaire/js/contact.js"></script>
-<script src="modules/formulaire/js/scriptContact.js"></script>
+<script src="./modules/formulaire/js/contactUpdate.js" defer></script>
+<script src="./modules/formulaire/js/scriptContactUpdate.js" defer></script>
 <div class="container">
-    <h2>Formulaire de Contact</h2>
+    <h2>Mise à jour du contact</h2>
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6 col-lg-offset-1">
-            <form action="?c=CtrlForm&m=editFormulaire" method="post" id="formulaire">
-                <input class="form-group">
+            <form action="?c=CtrlForm&m=MAJContact" method="post" id="formulaireUpdate">
+
+                <input name="id" id="id" type="hidden" value="<?= $data[0]['id'] ?>">
+
+                <div class="form-group">
                     <label class="control-label" for="nom">Nom</label>
-                    <input type="text" class="form-control" placeholder="entrer votre nom" name="nom" id="nom" value="<?= $data['nom'] ?>">
+                    <input type="text" class="form-control" placeholder="entrer votre nom" name="nom" id="nom"
+                        value="<?= $data[0]['nom'] ?>">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="prenom">Prénom</label>
-                    <input type="text" class="form-control" placeholder="entrer votre prénom" name="prenom" id="prenom" value="<?= $data['prenom'] ?>">
+                    <input type="text" class="form-control" placeholder="entrer votre prénom" name="prenom" id="prenom"
+                        value="<?= $data[0]['prenom'] ?>">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="tel">Tel</label>
-                    <input type="text" class="form-control" placeholder="entrer votre téléphone" name="tel" id="tel" value="<?= $data['tel'] ?>">
+                    <input type="text" class="form-control" placeholder="entrer votre téléphone" name="tel" id="tel"
+                        value="<?= $data[0]['tel'] ?>">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="email">Email</label>
-                    <input type="text" class="form-control" placeholder="entrer votre email" name="email" id="email" value="<?= $data['email'] ?>">
+                    <input type="text" class="form-control" placeholder="entrer votre email" name="email" id="email"
+                        value="<?= $data[0]['email'] ?>">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-default" type="reset">Annuler</button>

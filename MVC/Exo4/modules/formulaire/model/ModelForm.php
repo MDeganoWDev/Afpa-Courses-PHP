@@ -23,7 +23,12 @@ class ModelForm
         return $result;        
     }
     public function editSelect($id){
-        $sql = "SELECT id FROM `contact` WHERE `contact`.`id`=$id";
+        $sql = "SELECT * FROM `contact` WHERE `contact`.`id`=$id";
+        $result = DAO_MySQLi::requete($sql);
+        return $result;        
+    }
+    public function Update($data){
+        $sql = "UPDATE `contact` SET `nom` = '{$data['nom']}', `prenom` = '{$data['prenom']}', `tel` = '{$data['tel']}', `email` = '{$data['email']}' WHERE `contact`.`id`= '{$data['id']}'";
         $result = DAO_MySQLi::requete($sql);
         return $result;        
     }

@@ -42,5 +42,9 @@ class CtrlForm
     $this->model->editSelect($id);
     $this->vue->afficherEdit($this->model->editSelect($id));
  }
+ public function MAJContact() {
+    $this->model->Update($_POST);
+    $this->vue->afficherTable($this->model->select());
+ }
  
 }
