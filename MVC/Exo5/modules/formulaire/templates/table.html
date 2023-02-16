@@ -1,0 +1,26 @@
+<h1>Liste des contacts</h1>
+<table class='table table-bordered' id='prev_jours'>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>téléphone</th>
+            <th>Email</th>
+            <th>Editer</th>
+            <th>Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php for ($i = 0; $i < count($data); $i++) : ?>
+            <tr>
+                <td> <?= $data[$i]['nom'] ?></td>
+                <td> <?= $data[$i]['prenom'] ?></td>
+                <td> <?= $data[$i]['tel'] ?></td>
+                <td> <?= $data[$i]['email'] ?></td>
+                <td><a href="/CtrlForm/editContact/<?= $data[$i]['id'] ?>" class="btn btn-default">Editer</a></td>
+                <td><a href="/CtrlForm/deleteContact/<?= $data[$i]['id'] ?>" class="btn btn-warning">Supprimer</a></td>
+                
+            </tr>
+        <?php endfor ?>
+    </tbody>
+</table>
