@@ -13,4 +13,11 @@ class Config
     static $apiMeteo = array(
         'url' => "https://www.prevision-meteo.ch/services/json/"
     );
+
+    static $bdd = array(
+        'host' => "localhost",
+        'user' => "root",
+        'pass' => "",
+        'database' => "contact_dwwm11"
+    );
 }

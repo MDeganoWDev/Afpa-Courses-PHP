@@ -4,7 +4,7 @@ class DAO_MySQLi implements DAO
 
     public static function requete($sql)
     {
-        $mysqli = new mysqli("localhost", "root", "", "contact_dwwm11");
+        $mysqli = new mysqli(Config::$bdd['host'], Config::$bdd['user'], Config::$bdd['pass'], Config::$bdd['database']);
 
         $result = $mysqli->query($sql, MYSQLI_USE_RESULT);
 
