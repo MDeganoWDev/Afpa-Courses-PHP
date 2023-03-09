@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+#main {
+  width: 100vw;
+  font-size: 2vh;
+  font-size: 2.5vw;
+}
+#main #container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.909);
+  width: 100%;
+  align-items: center;
+}
+
+#main #container > h1 {
+  align-content: center;
+  letter-spacing: 0.2rem;
+  color: whitesmoke;
+  padding: 3%;
+}
+#main #container #containerSearch {
+  background-color: whitesmoke;
+  padding: 5% 5%;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+#main #container #containerSearch #button {
+  font-size: 1.5vh;
+  font-size: 2vw;
+  border-radius: 50px;
+  background-color: rgb(132, 204, 230);
+  color: whitesmoke;
+}
+#main #container #containerSearch #genre {
+  font-size: 1.5vh;
+  font-size: 2vw;
+  border-radius: 50px;
+}
+#container #containerFilms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#container #containerFilms > h2 {
+  padding: 6% 0 4% 0;
+  letter-spacing: 0.15rem;
+  color: whitesmoke;
+}
+#container #containerFilms .filmCard {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 10%;
+  background-color: wheat;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin-bottom: 5%;
+}
+#container #containerFilms .filmCard:nth-child(odd) {
+  background-color:white;
+}
+#container #containerFilms .filmCard .filmTitle {
+  width: 30%;
+}
+#container #containerFilms .filmCard > h3 {
+  padding: 2%;
+}
+
+#container #containerFilms .filmCard .filmContainer {
+  display: flex;
+  flex-direction: row;
+}
+#container #containerFilms .filmCard .filmContainer .filmTitle .affiche {
+  width: 100%;
+  height: auto;
+}
+#container #containerFilms .filmCard .filmContainer .filmTitle .affiche > img {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+  margin: 0 5% 3% 5%;
+}
+#container #containerFilms .filmCard .filmContainer .filmContaint {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 0% 2% 2% 2%;
+  font-size: 1.5vh;
+  font-size: 2vw;
+}
