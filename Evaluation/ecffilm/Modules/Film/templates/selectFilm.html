@@ -26,7 +26,10 @@
                 <?= $film['acteurs'] ?>
             </div>
             <div><strong>Date de sortie :</strong>
-                <?= $film['acteurs'] ?>
+                <?php
+                setlocale(LC_TIME, '');
+                echo strftime("%d %B %Y", strtotime($film['date_sortie']));                
+                ?>
             </div>
             <br>
             <div><strong>Résumé :</strong>

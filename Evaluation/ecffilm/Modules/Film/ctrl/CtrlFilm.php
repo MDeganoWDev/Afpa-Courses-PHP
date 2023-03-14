@@ -14,7 +14,6 @@ class CtrlFilm
     public function allFilm()
     {
         @$films = $this->model->selectAllFilm();
-        // die($films);
         //SECURITEE POUR VERIFIER QUE LE SERVEUR A BIEN RENVOYER UNE DATA SINON IL RENVOI UN BOOLEEN FALSE
         if (!$films || empty($films)) {
             $this->vue->afficherError("ERREUR SERVEUR, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");
@@ -30,7 +29,6 @@ class CtrlFilm
         if (isset($_POST)) {
             @$genre = $_POST['genre'];
             @$films = $this->model->selectGenre($genre);
-            // die($films);
             //SECURITEE POUR VERIFIER QUE LE SERVEUR A BIEN RENVOYER UNE DATA SINON IL RENVOI UN BOOLEEN FALSE
             if (!$films || empty($films)) {
                 $this->vue->afficherError("ERREUR SERVEUR, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");

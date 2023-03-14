@@ -7,7 +7,10 @@ class ModelFilm
     //METHODE POUR SELECTIONNER TOUT LES FILMS DANS LA BDD VIA LA DAO
     public function selectAllFilm()
     {
-        $sql = "SELECT * FROM `film`";
+        $sql = "SELECT *
+        FROM `film`
+        JOIN `appartenir` ON `appartenir`.`id_film` = `film`.`id_film`
+        JOIN `genre` ON `genre`.`id_genre` = `appartenir`.`id_genre`";
         $result = DAO_Film::requete($sql);
         return $result;
     }

@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="../public/css/style.css">
 
 <div id="container">
-    <h1>Films Cultes</h1>
     <div id="containerSearch">
         <form id="film" method="post" action="/CtrlFilm/thisGenre">
             <label for="genre">Choisir un genre : </label>
             <select name="genre" id="genre">
+             
                 <option value="Comédie" <?php if (isset($genre) && $genre=='Comédie' ) echo 'selected' ; ?>>Comédie
                 </option>
                 <option value="Drame" <?php if (isset($genre) && $genre=='Drame' ) echo 'selected' ; ?>>Drame</option>
