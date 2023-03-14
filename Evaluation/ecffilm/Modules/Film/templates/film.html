@@ -1,30 +1,22 @@
 <link rel="stylesheet" href="../public/css/style.css">
 
 <div id="container">
+    <h1>Films Cultes</h1>
+    <h1>Films Cultes</h1>
     <div id="containerSearch">
         <form id="film" method="post" action="/CtrlFilm/thisGenre">
             <label for="genre">Choisir un genre : </label>
             <select name="genre" id="genre">
-             
-                <option value="Comédie" <?php if (isset($genre) && $genre=='Comédie' ) echo 'selected' ; ?>>Comédie
-                </option>
-                <option value="Drame" <?php if (isset($genre) && $genre=='Drame' ) echo 'selected' ; ?>>Drame</option>
-                <option value="Romance" <?php if (isset($genre) && $genre=='Romance' ) echo 'selected' ; ?>>Romance
-                </option>
-                <option value="Policier" <?php if (isset($genre) && $genre=='Policier' ) echo 'selected' ; ?>>Policier
-                </option>
-                <option value="Fantastique" <?php if (isset($genre) && $genre=='Fantastique' ) echo 'selected' ; ?>
-                    >Fantastique</option>
-                <option value="Historique" <?php if (isset($genre) && $genre=='Historique' ) echo 'selected' ; ?>
-                    >Historique</option>
-                <option value="Guerre" <?php if (isset($genre) && $genre=='Guerre' ) echo 'selected' ; ?>>Guerre
-                </option>
-                <option value="Aventure" <?php if (isset($genre) && $genre=='Aventure' ) echo 'selected' ; ?>>Aventure
-                </option>
-                <option value="Action" <?php if (isset($genre) && $genre=='Action' ) echo 'selected' ; ?>>Action
-                </option>
-                <option value="Thriller" <?php if (isset($genre) && $genre=='Thriller' ) echo 'selected' ; ?>>Thriller
-                </option>
+                <?php 
+                $uniqueGenres = array_unique(array_column($genres, 'genre')); // extrait la colonne 'genre' et élimine les doublons
+                foreach($uniqueGenres as $genre) {
+                    if ($genre === $thisGenre && isset($genre)) {
+                        echo "<option value=\"$genre\" selected>$genre</option>";
+                    } else {
+                        echo "<option value=\"$genre\">$genre</option>";
+                    }
+                }
+                ?>
             </select>
             <button type="submit" id="button"> Trouver </button>
         </form>

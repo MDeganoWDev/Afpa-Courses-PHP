@@ -12,7 +12,7 @@ class VueFilm
         include "templates/default.html";
     }
     //METHODE POUR AFFICHER LES FILMS DU GENRE SELECTIONNE DANS LE TEMPLATE film.html
-    public function afficherThisGenre($films, $genre)
+    public function afficherThisGenre($genres, $films, $thisGenre)
     {
         $partial = "Modules/Film/templates/selectFilm.html";
         include "templates/default.html";

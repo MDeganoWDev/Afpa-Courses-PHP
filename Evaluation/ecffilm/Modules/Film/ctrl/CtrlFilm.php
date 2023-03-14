@@ -27,13 +27,14 @@ class CtrlFilm
     {
         //SECURITEE POUR VERIFIER QUE NOUS AVONS RECU LE POST DU FORMULAIRE 
         if (isset($_POST)) {
-            @$genre = $_POST['genre'];
-            @$films = $this->model->selectGenre($genre);
+            @$thisGenre = $_POST['genre'];
+            @$films = $this->model->selectGenre($thisGenre);
+            @$genres = $this->model->selectAllFilm();
             //SECURITEE POUR VERIFIER QUE LE SERVEUR A BIEN RENVOYER UNE DATA SINON IL RENVOI UN BOOLEEN FALSE
             if (!$films || empty($films)) {
                 $this->vue->afficherError("ERREUR SERVEUR, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");
             } else {
-                $this->vue->afficherThisGenre($films, $genre);
+                $this->vue->afficherThisGenre($genres, $films, $thisGenre);
             }
         } else {
             $this->vue->afficherError("ERREUR DU TRAITEMENT DU FILTRE, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");
