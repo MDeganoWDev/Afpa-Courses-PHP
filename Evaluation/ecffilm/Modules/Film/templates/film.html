@@ -6,9 +6,9 @@
         <form id="film" method="post" action="/CtrlFilm/thisGenre">
             <label for="genre">Choisir un genre : </label>
             <select name="genre" id="genre">
-                <?php 
-                $uniqueGenres = array_unique(array_column($genres, 'genre')); // extrait la colonne 'genre' et élimine les doublons
-                foreach($uniqueGenres as $genre) {
+                <?php                 
+                foreach($genres as $genre) {
+                    $genre = $genre['genre'];
                     if ($genre === $thisGenre && isset($genre)) {
                         echo "<option value=\"$genre\" selected>$genre</option>";
                     } else {

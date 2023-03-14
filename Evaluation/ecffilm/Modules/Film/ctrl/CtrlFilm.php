@@ -14,11 +14,12 @@ class CtrlFilm
     public function allFilm()
     {
         @$films = $this->model->selectAllFilm();
+        @$genres = $this->model->selectAllGenre();
         //SECURITEE POUR VERIFIER QUE LE SERVEUR A BIEN RENVOYER UNE DATA SINON IL RENVOI UN BOOLEEN FALSE
         if (!$films || empty($films)) {
             $this->vue->afficherError("ERREUR SERVEUR, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");
         } else {
-            $this->vue->afficherAll($films);
+            $this->vue->afficherAll($genres, $films);
         }
     }
 
@@ -29,7 +30,7 @@ class CtrlFilm
         if (isset($_POST)) {
             @$thisGenre = $_POST['genre'];
             @$films = $this->model->selectGenre($thisGenre);
-            @$genres = $this->model->selectAllFilm();
+            @$genres = $this->model->selectAllGenre();
             //SECURITEE POUR VERIFIER QUE LE SERVEUR A BIEN RENVOYER UNE DATA SINON IL RENVOI UN BOOLEEN FALSE
             if (!$films || empty($films)) {
                 $this->vue->afficherError("ERREUR SERVEUR, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");

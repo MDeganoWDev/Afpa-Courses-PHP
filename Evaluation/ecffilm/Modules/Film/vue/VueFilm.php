@@ -6,7 +6,7 @@ class VueFilm
 
     }
     //METHODE POUR AFFICHER TOUT LES FILM DANS LE TEMPLATE film.html
-    public function afficherAll($films)
+    public function afficherAll($genres, $films)
     {
         $partial = "Modules/Film/templates/selectFilm.html";
         include "templates/default.html";
