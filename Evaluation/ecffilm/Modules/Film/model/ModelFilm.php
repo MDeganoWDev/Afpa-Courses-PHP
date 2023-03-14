@@ -19,7 +19,7 @@ class ModelFilm
         FROM `film`
         JOIN `appartenir` ON `appartenir`.`id_film` = `film`.`id_film`
         JOIN `genre` ON `genre`.`id_genre` = `appartenir`.`id_genre`
-        WHERE `genre`.`genres` = '{$genre}'
+        WHERE `genre`.`genre` = '{$genre}'
         ";
         $result = DAO_Film::requete($sql);
         return $result;

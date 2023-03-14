@@ -8,13 +8,13 @@ class VueFilm
     //METHODE POUR AFFICHER TOUT LES FILM DANS LE TEMPLATE film.html
     public function afficherAll($films)
     {
-        $partial = "Modules/Film/templates/film.html";
+        $partial = "Modules/Film/templates/selectFilm.html";
         include "templates/default.html";
     }
     //METHODE POUR AFFICHER LES FILMS DU GENRE SELECTIONNE DANS LE TEMPLATE film.html
     public function afficherThisGenre($films, $genre)
     {
-        $partial = "Modules/Film/templates/film.html";
+        $partial = "Modules/Film/templates/selectFilm.html";
         include "templates/default.html";
     }
     //METHODE POUR AFFICHER LES ERREURS DE SERVEUR

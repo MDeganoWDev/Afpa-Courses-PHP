@@ -29,45 +29,7 @@
             <button type="submit" id="button"> Trouver </button>
         </form>
     </div>
-
     <div id="containerFilms">
-        <?php if (count($films)<2): ?>
-        <h2>
-            <?= count($films) ?> Film trouvé
-        </h2>
-        <?php else: ?>
-        <h2>
-            <?= count($films) ?> Films trouvés
-        </h2>
-
-        <?php endif; ?>
-
-        <?php foreach($films as $film) : ?>
-        <div class="filmCard">
-            <h3>
-                <?= $film['titre'] ?>
-            </h3>
-            <div class="filmContainer">
-            <div class="filmTitle">
-                <div class="affiche"><img src="../public/images/<?= $film['affiche'] ?>"></div>
-            </div>
-                <div class="filmContaint">
-                    <div><strong>Réalisateur :</strong>
-                        <?= $film['realisateur'] ?>
-                    </div>
-                    <div><strong>Acteurs :</strong>
-                        <?= $film['acteurs'] ?>
-                    </div>
-                    <div><strong>Date de sortie :</strong>
-                        <?= $film['acteurs'] ?>
-                    </div>
-                    <br>
-                    <div><strong>Résumé :</strong>
-                        <?= $film['resume'] ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php endforeach ?>
+        <?php include $partial ?>
     </div>
 </div>

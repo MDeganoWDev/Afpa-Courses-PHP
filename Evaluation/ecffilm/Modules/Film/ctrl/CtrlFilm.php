@@ -14,11 +14,12 @@ class CtrlFilm
     public function allFilm()
     {
         @$films = $this->model->selectAllFilm();
+        // die($films);
         //SECURITEE POUR VERIFIER QUE LE SERVEUR A BIEN RENVOYER UNE DATA SINON IL RENVOI UN BOOLEEN FALSE
-        if ($films) {
-            $this->vue->afficherAll($films);
-        } else {
+        if (!$films || empty($films)) {
             $this->vue->afficherError("ERREUR SERVEUR, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");
+        } else {
+            $this->vue->afficherAll($films);
         }
     }
 
@@ -29,11 +30,12 @@ class CtrlFilm
         if (isset($_POST)) {
             @$genre = $_POST['genre'];
             @$films = $this->model->selectGenre($genre);
+            // die($films);
             //SECURITEE POUR VERIFIER QUE LE SERVEUR A BIEN RENVOYER UNE DATA SINON IL RENVOI UN BOOLEEN FALSE
-            if ($films) {
-                $this->vue->afficherThisGenre($films, $genre);
-            } else {
+            if (!$films || empty($films)) {
                 $this->vue->afficherError("ERREUR SERVEUR, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");
+            } else {
+                $this->vue->afficherThisGenre($films, $genre);
             }
         } else {
             $this->vue->afficherError("ERREUR DU TRAITEMENT DU FILTRE, VEUILLEZ CONTACTER LES PERSONNES CONCERNEES");
